@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Astro Node App with SSE">
+  <main>
+    <ul>
+      <li><a href="/gpt">ChatGPT Example</a></li>
+      <li><a href="/newsfeed">Newsfeed Example</a></li>
+      <li><a href="/mastodon">Mastodon Example</a></li>
+    </ul>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+</style>

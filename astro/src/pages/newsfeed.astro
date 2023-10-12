@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<script>
+  const evtSource = new EventSource("http://localhost:3000/dev");
+
+  evtSource.addEventListener("dev", (event) => {
+    const { type, data } = event;
+    const outputDiv = document.getElementById("output");
+    const lastCheckedDiv = document.getElementById("lastChecked");
+    const article = JSON.parse(data);
+    console.log(data);
+    if (article.title != null && article.url != null) {
+      outputDiv.innerHTML +=
+        "<p><a style='color:white;' href='" +
+        article.url +
+        "'>" +
+        article.title +
+        "</a></p>";
+    } else {
+      console.log("data is null");
+    }
+    lastCheckedDiv.innerText = new Date().toLocaleTimeString();
+  });
+</script>
+
+<Layout title="Astro Node App with SSE">
+  <main>
+    <h1>Dev.to Feed</h1>
+    <p>Last checked: <span id="lastChecked"></span></p>
+    <div id="output"></div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+</style>

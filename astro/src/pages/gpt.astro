@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<script>
+  const evtSource = new EventSource("http://localhost:3000/gpt");
+
+  evtSource.addEventListener("gpt", (event) => {
+    const { type, data } = event;
+    const outputDiv = document.getElementById("output");
+
+    let content = data.replaceAll(/\\n/g, "<br />");
+    content = content.replaceAll('"', "");
+
+    outputDiv.innerHTML += content;
+  });
+</script>
+
+<Layout title="Astro Node App with SSE">
+  <main>
+    <div id="output"></div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+</style>
