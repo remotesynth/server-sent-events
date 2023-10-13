@@ -62,7 +62,6 @@ app.get("/dev", async (req, res) => {
     publishedDate = new Date(latestArticle.published_timestamp);
 
     if (publishedDate.getTime() > lastChecked) {
-      console.log("new article");
       res.sse.push(latestArticle, "dev");
       lastChecked = publishedDate.getTime();
     } else {
@@ -74,7 +73,7 @@ app.get("/dev", async (req, res) => {
         "dev"
       );
     }
-  }, 30 * 1000);
+  }, 20 * 1000);
 });
 
 app.get("/mastodon", async (req, res) => {
