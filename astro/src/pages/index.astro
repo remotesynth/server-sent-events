@@ -3,23 +3,46 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Astro Node App with SSE">
-  <main>
-    <ul>
-      <li><a href="/gpt">ChatGPT Example</a></li>
-      <li><a href="/newsfeed">Newsfeed Example</a></li>
-      <li><a href="/mastodon">Mastodon Example</a></li>
-    </ul>
-  </main>
+  <div class="flex flex-col justify-center items-center h-[100vh] pt-4">
+    <div
+      class="min-w-[375px] md:min-w-[700px] xl:min-w-[800px] mt-3 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-6"
+    >
+      <div
+        class="relative flex flex-grow !flex-row flex-col items-center rounded-[10px] rounded-[10px] border-[1px] border-gray-200 bg-white bg-clip-border shadow-md shadow-[#F3F3F3]"
+      >
+        <div class="h-50 m-4 flex w-auto flex-col justify-center">
+          <h4 class="text-xl font-bold text-navy-700">
+            <a href="/gpt" class="underline decoration-indigo-500"
+              >ChatGPT Example</a
+            >
+          </h4>
+          <p>Using the ChatGPT streaming API response.</p>
+        </div>
+      </div>
+      <div
+        class="relative flex flex-grow !flex-row flex-col items-center rounded-[10px] rounded-[10px] border-[1px] border-gray-200 bg-white bg-clip-border shadow-md shadow-[#F3F3F3]e"
+      >
+        <div class="h-50 m-4 flex w-auto flex-col justify-center">
+          <h4 class="text-xl font-bold text-navy-700">
+            <a href="/newsfeed" class="underline decoration-indigo-500"
+              >Newsfeed Example</a
+            >
+          </h4>
+          <p>Polling a newsfeed API and streaming updates.</p>
+        </div>
+      </div>
+      <div
+        class="relative flex flex-grow !flex-row flex-col items-center rounded-[10px] rounded-[10px] border-[1px] border-gray-200 bg-white bg-clip-border shadow-md shadow-[#F3F3F3]e"
+      >
+        <div class="h-50 m-4 flex w-auto flex-col justify-center">
+          <h4 class="text-xl font-bold text-navy-700">
+            <a href="/mastodon" class="underline decoration-indigo-500"
+              >Mastodon Example</a
+            >
+          </h4>
+          <p>Using the Mastodon streaming API response.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </Layout>
-
-<style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
-  }
-</style>

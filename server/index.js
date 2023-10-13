@@ -15,6 +15,7 @@ const port = 3000;
 app.use(cors());
 
 app.get("/gpt", async (req, res) => {
+  const query = req.query.query;
   const session = await createSession(req, res);
 
   res.sse = session;
@@ -26,7 +27,7 @@ app.get("/gpt", async (req, res) => {
       messages: [
         {
           role: "user",
-          content: "explain server sent events and what they are used for",
+          content: query,
         },
       ],
     },
