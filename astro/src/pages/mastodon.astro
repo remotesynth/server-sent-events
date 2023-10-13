@@ -9,30 +9,24 @@ import Layout from "../layouts/Layout.astro";
     const { type, data } = event;
     const outputDiv = document.getElementById("output");
     const lastCheckedDiv = document.getElementById("lastChecked");
-    console.log(data);
+
     if (data && data !== '""') {
-      outputDiv.innerHTML += data.substring(1, data.length - 2);
+      const contents = data.substring(1, data.length - 2);
+      outputDiv.innerHTML = `<div class="w-1/2 rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+  <div class="p-6">
+    <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">${contents}
+    </p>
+  </div>
+</div>`;
     }
     lastCheckedDiv.innerText = new Date().toLocaleTimeString();
   });
 </script>
 
-<Layout title="Astro Node App with SSE">
-  <main>
-    <h1>Mastodon Feed</h1>
-    <p>Last checked: <span id="lastChecked"></span></p>
-    <div id="output"></div>
+<Layout title="Server Sent Events with the Mastodon API">
+  <main class="text-center">
+    <h1 class="text-2xl font-bold">Mastodon Public Posts Feed</h1>
+    <p class="mb-4">Last checked: <span id="lastChecked"></span></p>
+    <div id="output" class="flex justify-center"></div>
   </main>
 </Layout>
-
-<style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
-  }
-</style>
