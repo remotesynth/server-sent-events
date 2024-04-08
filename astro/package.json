@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "SSE Astro",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,12 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/node": "^6.0.1",
-    "@astrojs/tailwind": "^5.0.2",
-    "astro": "^3.1.4",
-    "better-sse": "^0.10.0",
-    "date-fns": "^2.30.0",
-    "openai": "^4.11.1",
-    "tailwindcss": "^3.3.3"
+    "@astrojs/check": "^0.5.10",
+    "@astrojs/node": "^8.2.5",
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^4.5.12",
+    "better-sse": "^0.11.0",
+    "date-fns": "^3.6.0",
+    "openai": "^4.30.0",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.3"
   }
 }
